@@ -1,0 +1,138 @@
+<!--create.ejs-->
+<form action="/book/create" method="POST">
+
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <div class="field">
+                    <label class="label">Serial</label>
+                    <div class="control">
+                        <input class="input" type="text" name="serial" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Title</label>
+                    <div class="control">
+                        <input class="input" type="text" name="title" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Author</label>
+                    <div class="control">
+                        <input class="input" type="text" name="author" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Image</label>
+                    <div class="control">
+                        <input class="input" type="url" name="image" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Category</label>
+                    <div class="control">
+                        <div class="select">
+                            <select onchange="categorySelected(this.value)"  id ="Category"name="category" required>
+                                <option value=""></option>
+                                <option value="N/A">N/A</option>
+                                <option value="art">Art</option>
+                                <option value="science">Science</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Classification</label>
+                    <div class="control">
+                        <div class="select">
+                            <select id="classification" value="classification" disabled required></select>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+
+                <div class="field">
+                    <label class="label">Period</label>
+                    <div class="control">
+                        <input class="input" type="number" name="period" min=0 required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Location</label>
+                    <div class="control">
+                        <input class="input" type="number" name="coins" min=0 required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Status</label>
+                    <div class="control">
+                        <div class="select">
+                            <select id="status" name="status" required>
+                                <option value="available">Available</option>
+                                <option value="unavailable">Unavailable</option>
+                                <option value="requested">Requested</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Description</label>
+                    <div class="control">
+                        <input class="textarea" placeholder="Textarea" name="description" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <button class="button is-link" type="submit">Submit</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+</form>
+<script>
+    var n = "N/A";
+    var art = ["academic", "entertainment", "social"];
+    var science = ["nature", "industry", "technology"];
+
+    function categorySelected(category){
+        var classificationElement = document.getElementById("classification");
+        classificationElement.options.length =0;
+
+        if(category == "N/A"){
+            var option = document.createElement("option");
+                    option.text = n;
+                    option.value = n;
+                    classificationElement.add(option);
+           classificationElement.disabled=false; 
+        }else if(category =="art"){
+            art.forEach(function (item) {
+                    var option = document.createElement("option");
+                    option.text = item;
+                    option.value = item;
+                    classificationElement.add(option);
+                });
+            classificationElement.disabled=false; 
+        }else if(category == "science"){
+            science.forEach(function (item) {
+                    var option = document.createElement("option");
+                    option.text = item;
+                    option.value = item;
+                    classificationElement.add(option);
+                });
+            classificationElement.disabled=false; 
+        }else{
+            classificationElement.disabled=true; 
+        }
+        
+
+    }
+</script>

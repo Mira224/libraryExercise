@@ -13,6 +13,42 @@ module.exports = {
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
 
+    serial:{
+      type:"string"
+    },
+    title: {
+      type: "string",
+      required: true,
+    },
+    author: {
+      type: "string",
+      required: true,
+    },
+    image: {
+      type: "string"
+    },
+    description: { type: "string" },
+    categroy: {
+      type: "string",
+      isIn:['N/A', 'art','science'],
+      defaultsTo:'N/A'
+    },
+    classification:{
+      type:"string",
+    },
+    location: {
+      type: "string",
+      required: true,
+    },
+    status: {
+      type: "string",
+      required: true,
+    },
+    period: {
+      type: "number",
+      required: true,
+    },
+
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗

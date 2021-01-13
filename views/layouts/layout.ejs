@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>New Sails App</title>
 
-    <!-- Viewport mobile tag for sensible mobile support -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <title>Library</title>
 
-    <%/* If you want to discourage search engines from indexing this site, uncomment the following line: */%>
-    <%/* <meta name="robots" content="noindex"> */%>
+  <!-- Viewport mobile tag for sensible mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <% /* If you want to discourage search engines from indexing this site, uncomment the following line: */%>
+    <% /* <meta name="robots" content="noindex"> */%>
 
 
-    <!--
+      <!--
         Stylesheets and Preprocessors
         ==============================
 
@@ -31,16 +32,80 @@
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
 
-    <!--STYLES-->
-    <!--STYLES END-->
-  </head>
+      <!--STYLES-->
+      <link rel="stylesheet" href="/styles/importer.css">
+      <!--STYLES END-->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+</head>
 
-  <body>
-    <%- body %>
+<body>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bulma.io">
+        <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item">
+          Home
+        </a>
+
+        <a class="navbar-item">
+          Search
+        </a>
+        <a class="navbar-item">
+          Create Announcemnet
+        </a>
+        <a class="navbar-item">
+          Create book
+        </a>
 
 
+      </div>
 
-    <!--
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary">
+            <strong>Sign up</strong>
+          </a>
+          <a class="button is-light">
+            Log in
+          </a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </nav>
+  <section class="section">
+    <div class="container">
+      <div style="font-size: 30px; font-family: Lucida Console">Library For you</div>
+      <div style="font-size:16px">A free inquiry library</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="column">
+
+        <%- body %>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!--
         Client-side Templates
         ========================
 
@@ -61,11 +126,11 @@
               stringfile before they're served.
     -->
 
-    <!--TEMPLATES-->
-    <!--TEMPLATES END-->
+  <!--TEMPLATES-->
+  <!--TEMPLATES END-->
 
 
-    <!--
+  <!--
         Server-side View Locals
         ========================
 
@@ -81,7 +146,7 @@
     -->
 
 
-    <!--
+  <!--
 
       Client-side Javascript
       ========================
@@ -104,7 +169,9 @@
 
     -->
 
-    <!--SCRIPTS-->
-    <!--SCRIPTS END-->
-  </body>
+  <!--SCRIPTS-->
+  <script src="/dependencies/sails.io.js"></script>
+  <!--SCRIPTS END-->
+</body>
+
 </html>
