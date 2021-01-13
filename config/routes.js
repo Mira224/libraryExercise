@@ -23,7 +23,7 @@ module.exports.routes = {
   'GET /book/createBook': 'BookController.create',
   'POST /book/createBook': 'BookController.create',
 
-  'GET /':'BookController.create',
+  'GET /':'BookController.home',
 
 
   /***************************************************************************

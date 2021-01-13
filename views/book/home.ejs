@@ -1,0 +1,59 @@
+<!--homepage.ejs-->
+<table class="table is-bordered is-striped is-hoverable is-fullwidth">
+    <div class="container">
+
+        <div class="columns">
+            <div class="column">
+                <strong>Arts</strong>
+                <% artBooks.forEach( function(book) { %>
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image ">
+                                <img src="<%= book.image %>">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <a href="http://localhost:1337/book/read/<%= book.id %>">
+                                <strong>
+                                    <li><%= book.title %></li>
+                                </strong>
+                            </a>
+                            <li><%= book.serial %></li>
+                            <br>
+                            <li>Period: <%= book.period %></li>
+                        </div>
+                    </div>
+                    <br>
+                    <% }); %>
+                </div>
+            </div>
+
+            <div class="column">
+                <strong>Science</strong>
+                <% scienceBooks.forEach( function(book) { %>
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image ">
+                                <img src="<%= book.image %>">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <a href="http://localhost:1337/book/read/<%= book.id %>">
+                                <strong>
+                                    <li><%= book.title %></li>
+                                </strong>
+                            </a>
+                            <li><%= book.serial %></li>
+                            <br>
+                            <li>Period: <%= book.period %></li>
+                        </div>
+                    </div>
+                    <br>
+                    <% }); %>
+                </div>
+            </div>
+
+           
+        </div>
+    </div>
+</table>
