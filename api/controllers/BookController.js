@@ -5,8 +5,6 @@
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
 
-const Book = require("../models/Book");
-
 module.exports = {
     //action - list books of different categroy
     home: async function (req, res) {
@@ -19,7 +17,7 @@ module.exports = {
             limit: 4,
         });
 
-        return res.view('book/home', { artBooks: artBook, scienceBook: science });
+        return res.view('book/home', { artBooks: artBook, scienceBooks: scienceBook });
     },
 
     // action - create
@@ -27,11 +25,19 @@ module.exports = {
 
         if (req.method == 'GET') return res.view('book/createBook');
 
-        var book = await book.create(req.body).fetch();
+        var book = await Book.create(req.body).fetch();
 
         return res.status(201).json({ id: book.id });
 
     },
+    // json function
+json: async function (req, res) {
+
+    var everybooks = await Book.find();
+
+    return res.json(everybooks);
+},
+
 
 
 };

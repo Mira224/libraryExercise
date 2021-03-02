@@ -62,12 +62,21 @@
         <a href="http://localhost:1337/" class="navbar-item">
           Search
         </a>
-        <a  href="http://localhost:1337/book/createBook" class="navbar-item">
-          Create Book
-        </a>
-        <a class="navbar-item">
-          Announcement Management
-        </a>
+        <% if (req.session.userrole == 'admin') { %>
+          <a href="http://localhost:1337/book/createBook" class="navbar-item">
+            Create Book 
+          </a>
+          <a href="http://localhost:1337/" class="navbar-item">
+            Announcement Management
+          </a>
+          <% } %>
+          <% if (req.session.userrole == 'member') { %>
+          <a href="http://localhost:1337/"  class="navbar-item"> My Books </a>
+          <% } %>
+
+
+
+      
 
 
       </div>
@@ -76,16 +85,32 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
+        <% if (req.session.userrole != 'admin' && req.session.userrole != 'member') { %>
         <div class="buttons">
           <a class="button is-primary">
             <strong>Sign up</strong>
           </a>
-          <a class="button is-light">
+          <a class="button is-light" href='http://localhost:1337/user/login'>
             Log in
           </a>
         </div>
+        <% } %>
+
+        <% if (req.session.userrole == 'member'||req.session.userrole =='admin') { %>
+        <div> Hi, <%= req.session.username %>  </div>
+        <form action="/user/logout" method="POST" >
+        <div class="buttons">
+          <button type="submit" class="button is-light" onclick="logout(this)">
+            Log out
+          </button>
+        </div>
+        </form>
+        
+        
+        <% } %>
+
+
       </div>
-    </div>
     </div>
   </nav>
   <section class="section">
@@ -173,6 +198,7 @@
   <!--SCRIPTS-->
   <script src="/dependencies/sails.io.js"></script>
   <!--SCRIPTS END-->
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </body>
 
 </html>

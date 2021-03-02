@@ -1,5 +1,5 @@
 <!--create.ejs-->
-<form action="/book/create" method="POST">
+<form action="/book/createBook" method="POST">
 
     <div class="container">
         <div class="columns">
@@ -30,28 +30,43 @@
                         <input class="input" type="url" name="image" required>
                     </div>
                 </div>
-                <div class="field">
-                    <label class="label">Category</label>
-                    <div class="control">
-                        <div class="select">
-                            <select onchange="categorySelected(this.value)"  id ="Category"name="category" required>
-                                <option value=""></option>
-                                <option value="N/A">N/A</option>
-                                <option value="art">Art</option>
-                                <option value="science">Science</option>
-                            </select>
+                <div class="columns">
+                    <div class="column">
+                        <div class="field">
+                            <label class="label">Category</label>
+                            <div class="control">
+                                <div class="select">
+                                    <select onchange="categorySelected(this.value)" id="Category" name="category"
+                                        required>
+                                        <option value=""></option>
+                                        <option value="N/A">N/A</option>
+                                        <option value="art">Art</option>
+                                        <option value="science">Science</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="field">
-                    <label class="label">Classification</label>
-                    <div class="control">
-                        <div class="select">
-                            <select id="classification" value="classification" disabled required></select>
-                        </div>
 
+                    <div class="column">
+                        <div class="field">
+                            <label class="label">Classification</label>
+                            <div class="control">
+                                <div class="select">
+                                    <select id="classification" value="classification" disabled required></select>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="field">
+                    <label class="label">Year</label>
+                    <div class="control">
+                        <input class="input" type="number" name="year" min=0 required>
+                    </div>
+                </div>
+
             </div>
 
             <div class="column">
@@ -97,42 +112,42 @@
 
         </div>
 
-</form>
+
 <script>
     var n = "N/A";
     var art = ["academic", "entertainment", "social"];
     var science = ["nature", "industry", "technology"];
 
-    function categorySelected(category){
+    function categorySelected(category) {
         var classificationElement = document.getElementById("classification");
-        classificationElement.options.length =0;
+        classificationElement.options.length = 0;
 
-        if(category == "N/A"){
+        if (category == "N/A") {
             var option = document.createElement("option");
-                    option.text = n;
-                    option.value = n;
-                    classificationElement.add(option);
-           classificationElement.disabled=false; 
-        }else if(category =="art"){
+            option.text = n;
+            option.value = n;
+            classificationElement.add(option);
+            classificationElement.disabled = false;
+        } else if (category == "art") {
             art.forEach(function (item) {
-                    var option = document.createElement("option");
-                    option.text = item;
-                    option.value = item;
-                    classificationElement.add(option);
-                });
-            classificationElement.disabled=false; 
-        }else if(category == "science"){
+                var option = document.createElement("option");
+                option.text = item;
+                option.value = item;
+                classificationElement.add(option);
+            });
+            classificationElement.disabled = false;
+        } else if (category == "science") {
             science.forEach(function (item) {
-                    var option = document.createElement("option");
-                    option.text = item;
-                    option.value = item;
-                    classificationElement.add(option);
-                });
-            classificationElement.disabled=false; 
-        }else{
-            classificationElement.disabled=true; 
+                var option = document.createElement("option");
+                option.text = item;
+                option.value = item;
+                classificationElement.add(option);
+            });
+            classificationElement.disabled = false;
+        } else {
+            classificationElement.disabled = true;
         }
-        
+
 
     }
 </script>

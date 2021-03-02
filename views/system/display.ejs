@@ -1,0 +1,32 @@
+<form action="/next" method = "POST" onsubmit="return check();">
+
+    <% images.forEach( function(image)){ %>
+        <image a='<%=image.img%>'></image>
+        <input name='pgrade' id='pgrade'>
+
+        <button type='button' onclick="setGrade('<%=image.id%>')">Next</button>
+        <%}) %>
+
+
+
+</form>
+
+<script>
+
+    async function setGrade(id) {
+        var grade1='';
+        var grade2='';
+        var grade3='';
+        if(id=="1"){
+             var grade1 = document.getElementById("pgrade").value;
+        }else if(id=="2"){
+             var grade2 = document.getElementById("pgrade").value;
+        }else if(id=="3"){
+             var grade3 = document.getElementById("pgrade").value;
+        };
+       
+
+        
+    }
+
+</script>

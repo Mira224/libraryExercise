@@ -1,0 +1,32 @@
+<form action="/enquiry" method = "POST" onsubmit="return checkTime();">
+<label>Email Address: </label>
+<input name="emailAddress"><br>
+
+<label>Preferred Contact Hours (Start): </label>
+<input name="stime" id="stime"><br>
+
+<label>Preferred Contact Hours (End): </label>
+<input name="etime" id ="etime"><br>
+
+<label>Your Enquiry: </label><br>
+<textarea name="userEnquiry"></textarea><br>
+
+<Button type="submit">Submit</Button>
+</form>
+
+<script>
+
+function checkTime(){
+var stime=document.getElementById("stime").value;
+var etime=document.getElementById("etime").value;
+
+if(stime<etime){
+
+    return true;
+}else{
+    alert("Start time should be ealier than end time.")
+    return false;
+}
+
+}
+</script>

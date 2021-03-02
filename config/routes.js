@@ -23,9 +23,24 @@ module.exports.routes = {
   'GET /book/createBook': 'BookController.create',
   'POST /book/createBook': 'BookController.create',
 
-  'GET /':'BookController.home',
+  'GET /book/json': 'BookController.json',
+
+  'GET /': 'BookController.home',
+
+  'GET /enquiry': 'RecordController.enquiry',
+  'POST /enquiry': 'RecordController.enquiry',
+  'GET /enquiries': 'RecordController.enquiries',
+
+  'GET /image': 'SystemController.display',
+  'POST /next': 'SystemController.next',
+  'POST /submit': 'SystemController.create',
 
 
+
+  'GET /user': 'UserController.login',
+  'GET /user/login': 'UserController.login',
+  'POST /user/login': 'UserController.login',
+  'POST /user/logout': 'UserController.logout',
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *
